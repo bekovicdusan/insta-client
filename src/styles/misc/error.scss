@@ -1,0 +1,16 @@
+@import '../variables/colors.scss';
+
+.error-container {
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid $warning;
+  color: $warning;
+  background-color: $warning-transparent;
+}
+
+.error {
+  border: 1px solid $warning;
+  color: $warning;
+  background-color: $warning-transparent;
+}

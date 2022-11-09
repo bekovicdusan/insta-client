@@ -1,0 +1,38 @@
+/* variables */
+@import './variables/colors.scss';
+
+/* pages */
+@import './pages/login.scss';
+@import './pages/register.scss';
+
+/* misc */
+@import './misc/error.scss';
+
+/* global */
+@font-face {
+    font-family: "Nunito";
+    src: local("Nunito"),
+     url('./fonts/Nunito-Medium.ttf') format("truetype");
+  }
+  
+  body {
+    min-height: 100vh;
+    color: $text;
+  }
+  
+  body, button {
+    font-family: 'Nunito';
+  }
+
+  input {
+    min-width: 185px;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid $main;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: $main;
+  }
