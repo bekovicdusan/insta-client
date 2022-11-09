@@ -9,6 +9,9 @@
         <input type="text" v-model="email" placeholder="Email">
         <input type="password" v-model="password" placeholder="Password">
         <button class="register-btn" @click="register">Register</button>
+        <div class="error-container" v-if="hasErrors">
+          {{ error }}
+        </div>
       </div>
     </div>
     <footer class="footer">
@@ -31,6 +34,8 @@ export default {
     const surname = ref('')
     const email = ref('')
     const password = ref('')
+    const error = ref('')
+    const hasErrors = ref(false)
 
     const register = () => {
       if (email.value === '' ||
@@ -50,6 +55,9 @@ export default {
           if (res.data.auth) {
             localStorage.setItem('jwt', res.data.token)
             router.push('/')
+          } else {
+            error.value = res.data.msg
+            hasErrors.value = true
           }
         })
         .catch(err => {
@@ -61,70 +69,11 @@ export default {
       surname,
       email,
       password,
+      error,
+      hasErrors,
 
       register
     }
   }
 }
 </script>
-
-<style lang="scss">
-@import url('../styles/colors.scss');
-
-body {
-  margin: 0;
-}
-
-.register-container {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  .main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .headline {
-      color: #e0218a;
-    }
-    .form-group {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: column;
-      input {
-        margin-bottom: 10px;
-        padding: 5px 10px;
-        min-width: 185px;
-      }
-    }
-    input {
-      border-radius: 10px;
-      outline: none;
-      box-shadow: none;
-      border: 1px solid #e0218a;
-    }
-    .register-btn {
-      transition: .4s;
-      font-weight: bold;
-      font-size: 16px;
-      margin-top: 5px;
-      border-radius: 50%;
-      border: 1px solid #e0218a;
-      background-color: white;
-      color: #e0218a;
-      width: 75px;
-      height: 75px;
-      &:hover {
-        transition: .4s;
-        color: white;
-        background-color: #e0218a;
-        cursor: pointer;
-      }
-    }
-  }
-}
-
-</style>
