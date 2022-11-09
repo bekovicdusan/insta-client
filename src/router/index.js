@@ -52,7 +52,14 @@ router.beforeEach((to, from, next) => {
     }
   } else {
     console.log('doesnt require auth')
-    next()
+    if (localStorage.getItem('jwt') !== null) {
+      next({
+        path: '/',
+        params: { nextUrl: '/' }
+      })
+    } else {
+      next()
+    }
   }
 })
 
