@@ -4,9 +4,9 @@
       <h1 class="headline">PinkyPink</h1>
       <h3>Log In</h3>
       <div class="form-group">
-        <input type="text" id="email" v-model="email" placeholder="Email">
-        <input type="text" id="password" v-model="password" placeholder="Password">
-        <button class="login-btn">Log in</button>
+        <input type="text" v-model="email" placeholder="Email">
+        <input type="password" v-model="password" placeholder="Password">
+        <button class="login-btn" @click="login">Log in</button>
       </div>
     </div>
     <footer class="footer">
@@ -19,15 +19,39 @@
 
 <script>
 import { ref } from 'vue'
+import store from '@/store'
+import axios from 'axios'
+import router from '@/router'
 
 export default {
   setup () {
     const email = ref('')
     const password = ref('')
 
+    const login = () => {
+      if (email.value === '' || password.value === '') return alert('Please fill in all fields')
+
+      const data = {
+        email: email.value,
+        password: password.value
+      }
+
+      axios.post(store.state.api_url + 'user/login', data)
+        .then(res => {
+          if (res.data.auth) {
+            localStorage.setItem('jwt', res.data.token)
+            router.push('/')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+
     return {
       email,
-      password
+      password,
+      login
     }
   }
 }
