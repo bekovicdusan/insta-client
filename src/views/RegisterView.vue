@@ -4,11 +4,11 @@
       <h1 class="headline">PinkyPink</h1>
       <h3>Register</h3>
       <div class="form-group">
-        <input type="text" id="forename" v-model="forename" placeholder="First Name">
-        <input type="text" id="surname" v-model="surname" placeholder="Last Name">
-        <input type="text" id="email" v-model="email" placeholder="Email">
-        <input type="text" id="password" v-model="password" placeholder="Password">
-        <button class="register-btn">Register</button>
+        <input type="text" v-model="forename" placeholder="First Name">
+        <input type="text" v-model="surname" placeholder="Last Name">
+        <input type="text" v-model="email" placeholder="Email">
+        <input type="password" v-model="password" placeholder="Password">
+        <button class="register-btn" @click="register">Register</button>
       </div>
     </div>
     <footer class="footer">
@@ -21,6 +21,9 @@
 
 <script>
 import { ref } from 'vue'
+import axios from 'axios'
+import store from '@/store'
+import router from '@/router'
 
 export default {
   setup () {
@@ -29,11 +32,37 @@ export default {
     const email = ref('')
     const password = ref('')
 
+    const register = () => {
+      if (email.value === '' ||
+       password.value === '' ||
+       forename.value === '' ||
+       surname.value === '') return alert('Please fill in all fields')
+
+      const data = {
+        forename: forename.value,
+        surname: surname.value,
+        email: email.value,
+        password: password.value
+      }
+
+      axios.post(store.state.api_url + 'user/register', data)
+        .then(res => {
+          if (res.data.auth) {
+            localStorage.setItem('jwt', res.data.token)
+            router.push('/')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
     return {
       forename,
       surname,
       email,
-      password
+      password,
+
+      register
     }
   }
 }
