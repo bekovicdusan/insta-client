@@ -1,7 +1,9 @@
 <template>
   <div class="app">
     <header-bar v-if="isAuthenticated" />
-    <router-view />
+    <div class="main-content">
+      <router-view />
+    </div>
     <footer-bar v-if="isAuthenticated" />
   </div>
 </template>
@@ -12,7 +14,7 @@ import FooterBar from '@/components/FooterBar'
 
 import store from '@/store'
 
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 
 export default {
   components: {
@@ -21,6 +23,10 @@ export default {
   },
   setup () {
     const isAuthenticated = computed(() => store.state.isAuthenticated)
+
+    onMounted(() => {
+      store.commit('isAuthenticated')
+    })
 
     return {
       isAuthenticated
