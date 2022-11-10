@@ -6,13 +6,13 @@
       <div class="form-group">
         <input type="text" v-model="email" placeholder="Email" :class="isWrongEmail ? 'error' : ''">
         <input type="password" v-model="password" placeholder="Password" :class="isWrongPassword ? 'error' : ''">
-        <button class="login-btn" @click="login">Log in</button>
+        <button class="primary-button" @click="login">Log in</button>
         <div class="error-container" v-if="isWrongEmail || isWrongPassword">
           {{ error }}
         </div>
       </div>
     </div>
-    <footer class="footer">
+    <footer>
       <p>
         Don't have an account? <router-link class="link" to="/register">Sign up</router-link>
       </p>

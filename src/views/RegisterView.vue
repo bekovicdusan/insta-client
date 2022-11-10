@@ -8,13 +8,13 @@
         <input type="text" v-model="surname" placeholder="Last Name">
         <input type="text" v-model="email" placeholder="Email">
         <input type="password" v-model="password" placeholder="Password">
-        <button class="register-btn" @click="register">Register</button>
+        <button class="primary-button" @click="register">Register</button>
         <div class="error-container" v-if="hasErrors">
           {{ error }}
         </div>
       </div>
     </div>
-    <footer class="footer">
+    <footer>
       <p>
         Already have an account? <router-link class="link" to="/login">Log in</router-link>
       </p>
