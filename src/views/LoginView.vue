@@ -24,7 +24,6 @@
 import { ref } from 'vue'
 import store from '@/store'
 import axios from 'axios'
-import router from '@/router'
 
 export default {
   setup () {
@@ -45,8 +44,7 @@ export default {
       axios.post(store.state.api_url + 'user/login', data)
         .then(res => {
           if (res.data.auth) {
-            localStorage.setItem('jwt', res.data.token)
-            router.push('/')
+            store.commit('login', res.data.token)
           } else {
             const errorMsg = res.data.msg
             error.value = errorMsg
