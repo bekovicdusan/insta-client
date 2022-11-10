@@ -1,0 +1,29 @@
+.post {
+  border-radius: 8px;
+  border: 1px solid $border;
+  margin-bottom: $padding-standard;
+  // background-color: $accent;
+  .post-header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 $padding-s;
+  }
+  .post-content {
+    width: 470px;
+    img {
+      width: 100%;
+    }
+  }
+  .post-feed {
+    padding: 0 $padding-s;
+    .user-desc {
+      margin-bottom: $padding-s;
+    }
+    .timestamp {
+      display: block;
+      margin-bottom: $padding-s;
+      // color: $info;
+    }
+  }
+}
