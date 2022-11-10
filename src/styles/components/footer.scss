@@ -1,0 +1,19 @@
+.footer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100vw - (#{$padding-s}) * 2);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  padding: $padding-s;
+  // background-color: $accent;
+
+  .icon-container {
+    display: flex;
+    justify-content: space-between;
+    min-width: 300px;
+  }
+}

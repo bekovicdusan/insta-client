@@ -1,5 +1,5 @@
 <template>
-  <header>
-    <h3 class="headline">PinkyPink</h3>
+  <header class="header">
+    <h1 class="headline">PinkyPink</h1>
   </header>
 </template>

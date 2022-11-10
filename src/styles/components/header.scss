@@ -1,0 +1,15 @@
+.header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  width: calc(100vw - (#{$padding-standard} * 2));
+  height: 40px;
+  padding: $padding-standard;
+  background-color: $white;
+  border-bottom: 1px solid $text;
+  color: $main;
+  .headline {
+    margin-top: 0;
+  }
+}
