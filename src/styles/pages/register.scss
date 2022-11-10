@@ -34,25 +34,5 @@
       box-shadow: none;
       border: 1px solid $main;
     }
-
-    .register-btn {
-      transition: .4s;
-      font-weight: bold;
-      font-size: 16px;
-      margin-top: 5px;
-      border-radius: 50%;
-      border: 1px solid $main;
-      background-color: $white;
-      color: $main;
-      width: 75px;
-      height: 75px;
-
-      &:hover {
-        transition: .4s;
-        color: $white;
-        background-color: $main;
-        cursor: pointer;
-      }
-    }
   }
 }
