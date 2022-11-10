@@ -1,8 +1,9 @@
 @import '../variables/colors.scss';
+@import '../variables/spacing.scss';
 
 .error-container {
-  margin: 15px 0;
-  padding: 15px;
+  margin: $padding-standard 0;
+  padding: $padding-standard;
   border-radius: 10px;
   border: 1px solid $warning;
   color: $warning;
