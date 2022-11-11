@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <post-component v-for="post in feed" :key="post.id" :post="post"/>
+    <button @click="logout">Logout</button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import store from '@/store'
+import { computed } from 'vue'
+import PostComponent from '@/components/PostComponent'
 
 export default {
-  name: 'HomeView',
   components: {
-    HelloWorld
+    PostComponent
+  },
+  setup () {
+    const feed = computed(() => store.state.feed)
+
+    const logout = () => {
+      store.commit('logout')
+    }
+
+    return {
+      feed,
+
+      logout
+    }
   }
 }
 </script>
