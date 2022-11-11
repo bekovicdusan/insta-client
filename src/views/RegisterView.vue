@@ -6,6 +6,7 @@
       <div class="form-group">
         <input type="text" v-model="forename" placeholder="First Name">
         <input type="text" v-model="surname" placeholder="Last Name">
+        <input type="text" v-model="username" placeholder="username">
         <input type="text" v-model="email" placeholder="Email">
         <input type="password" v-model="password" placeholder="Password">
         <button class="primary-button" @click="register">Register</button>
@@ -32,6 +33,7 @@ export default {
   setup () {
     const forename = ref('')
     const surname = ref('')
+    const username = ref('')
     const email = ref('')
     const password = ref('')
     const error = ref('')
@@ -41,11 +43,13 @@ export default {
       if (email.value === '' ||
        password.value === '' ||
        forename.value === '' ||
-       surname.value === '') return alert('Please fill in all fields')
+       surname.value === '' ||
+       username.value === '') return alert('Please fill in all fields')
 
       const data = {
         forename: forename.value,
         surname: surname.value,
+        username: username.value,
         email: email.value,
         password: password.value
       }
@@ -54,6 +58,7 @@ export default {
         .then(res => {
           if (res.data.auth) {
             localStorage.setItem('jwt', res.data.token)
+            store.commit('isAuthenticated')
             router.push('/')
           } else {
             error.value = res.data.msg
@@ -67,6 +72,7 @@ export default {
     return {
       forename,
       surname,
+      username,
       email,
       password,
       error,
