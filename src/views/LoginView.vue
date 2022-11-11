@@ -45,6 +45,7 @@ export default {
         .then(res => {
           if (res.data.auth) {
             store.commit('login', res.data.token)
+            store.commit('instantiateUser', res.data.user)
           } else {
             const errorMsg = res.data.msg
             error.value = errorMsg
