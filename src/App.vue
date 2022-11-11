@@ -15,6 +15,7 @@ import FooterBar from '@/components/FooterBar'
 import store from '@/store'
 
 import { computed, onMounted } from 'vue'
+import axios from 'axios'
 
 export default {
   components: {
@@ -26,6 +27,14 @@ export default {
 
     onMounted(() => {
       store.commit('isAuthenticated')
+
+      axios.get(store.state.api_url + 'post/getposts')
+        .then(res => {
+          store.commit('getFeed', res.data)
+        })
+        .catch(err => {
+          if (err) throw err
+        })
     })
 
     return {
