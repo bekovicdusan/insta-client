@@ -1,11 +1,11 @@
 <template>
   <article class="post">
-    <header class="post-header">{{ post.username }}</header>
+    <header class="post-header"><strong>{{ post.username }}</strong></header>
     <section class="post-content">
       <img :src="post.image" :alt="post.caption">
     </section>
     <footer class="post-feed">
-      <p class="user-desc"><strong>{{post.username + ': '}}</strong> {{ post.caption }}</p>
+      <p class="user-desc"><strong>{{ post.username }}</strong> {{ post.caption }}</p>
       <span class="timestamp">Posted on {{ timestampToDate(post.timestamp) }}</span>
     </footer>
   </article>
@@ -22,7 +22,7 @@ export default {
   },
   setup () {
     const timestampToDate = (timestamp) => {
-      const d = new Date(timestamp)
+      const d = new Date(parseInt(timestamp))
       const year = d.getFullYear()
       let month = d.getMonth()
       if (month < 10) month = '0' + month
