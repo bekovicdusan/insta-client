@@ -13,9 +13,6 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/LoginView.vue'),
     meta: {
       requiresAuth: false
@@ -24,12 +21,35 @@ const routes = [
   {
     path: '/register',
     name: 'register',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/RegisterView.vue'),
     meta: {
       requiresAuth: false
+    }
+  },
+  {
+    path: '/newpost',
+    name: 'newpost',
+    component: () => import(/* webpackChunkName: "about" */ '../components/NewPost.vue'),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/profile/:username',
+    name: 'Profile',
+    props: route => ({ ...route.params, username: route.params.username }),
+    component: () => import(/* webpackChunkName: "about" */ '../views/ProfileView.vue'),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/profile/:username/:post_id',
+    name: 'ProfilePost',
+    props: route => ({ ...route.params, username: route.params.username, post_id: route.params.post_id }),
+    component: () => import(/* webpackChunkName: "about" */ '../components/NewPost.vue'),
+    meta: {
+      requiresAuth: true
     }
   }
 ]
