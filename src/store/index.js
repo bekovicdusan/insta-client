@@ -5,6 +5,7 @@ export default createStore({
   state: {
     api_url: 'http://localhost:3000/',
     isAuthenticated: false,
+    currentUser: {},
     feed: [
       {
         id: 0,
@@ -35,6 +36,9 @@ export default createStore({
   getters: {
   },
   mutations: {
+    getFeed (state, feed) {
+      state.feed = feed
+    },
     isAuthenticated (state) {
       if (localStorage.getItem('jwt') !== null) {
         state.isAuthenticated = true
@@ -45,12 +49,21 @@ export default createStore({
     login (state, token) {
       state.isAuthenticated = true
       localStorage.setItem('jwt', token)
+
       router.push('/')
     },
     logout (state) {
       state.isAuthenticated = false
       localStorage.removeItem('jwt')
       router.push('/login')
+    },
+    instantiateUser (state, user) {
+      state.currentUser.account_created = user.account_created
+      state.currentUser.email = user.email
+      state.currentUser.forename = user.forename
+      state.currentUser.surname = user.surname
+      state.currentUser.username = user.username
+      state.currentUser._id = user._id
     }
   },
   actions: {
