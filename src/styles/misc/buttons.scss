@@ -1,0 +1,47 @@
+.primary-button,
+.secondary-button {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .4s;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 50%;
+  &:hover {
+    transition: .4s;
+    cursor: pointer;
+  }
+}
+
+.primary-button {
+  border: 1px solid $main;
+  background-color: $white;
+  color: $main;
+  &:hover {
+    color: $white;
+    background-color: $main;
+  }
+}
+
+.primary-button.icon,
+.secondary-button.icon {
+  width: 50px;
+  height: 50px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.secondary-button {
+  border: 1px solid $tertiary;
+  color: $tertiary;
+  background-color: $white;
+  &:hover {
+    background-color: $tertiary;
+    color: $accent;
+  }
+}

@@ -6,19 +6,22 @@
 @import './components/header.scss';
 @import './components/footer.scss';
 @import './components/post.scss';
+@import './components/newPost.scss';
 
 /* pages */
 @import './pages/login.scss';
 @import './pages/register.scss';
+@import './pages/profile.scss';
 
 /* misc */
 @import './misc/error.scss';
+@import './misc/buttons.scss';
 
 /* global */
 @font-face {
   font-family: "Nunito";
   src: local("Nunito"),
-    url('./fonts/Nunito-Medium.ttf') format("truetype");
+    url('./assets/fonts/Nunito-Medium.ttf') format("truetype");
 }
 
 body {
@@ -31,12 +34,16 @@ button {
   font-family: 'Nunito';
 }
 
-input {
+input,
+textarea {
   min-width: 185px;
   border-radius: 10px;
   outline: none;
   box-shadow: none;
   border: 1px solid $main;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  min-width: 185px;
 }
 
 .link {
@@ -44,40 +51,13 @@ input {
   color: $main;
 }
 
-.primary-button {
-  transition: .4s;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 50%;
-  border: 1px solid $main;
-  background-color: $white;
-  color: $main;
-  width: 75px;
-  height: 75px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &:hover {
-    transition: .4s;
-    color: $white;
-    background-color: $main;
-    cursor: pointer;
-  }
-}
-
-.primary-button.icon {
-  width: 50px;
-  height: 50px;
-}
-
-.icon {
-  width: 23px;
-  height: 23px;
-}
-
 .main-content {
   margin-top: calc(#{$header} + #{$padding-standard});
   display: flex;
   justify-content: center;
+}
+
+.home {
+  display: flex;
+  flex-direction: column-reverse;
 }
