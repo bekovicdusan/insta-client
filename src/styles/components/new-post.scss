@@ -1,0 +1,44 @@
+.new-post {
+  .stream {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .capture {
+    display: flex;
+    flex-direction: column;
+    textarea {
+      margin-top: $padding-standard;
+      max-width: 378px;
+    }
+  }
+  .hide {
+    display: none;
+  }
+}
+
+.show {
+  display: block;
+}
+
+
+
+#capture,
+#upload {
+  margin-top: $padding-standard;
+  position: absolute;
+  left: 50%;
+  bottom: 85px;
+  transform: translateX(-50%);
+}
+
+#close {
+  position: absolute;
+  display: block;
+  &:hover {
+    cursor: pointer;
+  }
+  top: $padding-standard;
+  right: $padding-standard;
+}
