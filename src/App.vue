@@ -14,7 +14,7 @@ import FooterBar from '@/components/FooterBar'
 
 import store from '@/store'
 
-import { computed, onMounted } from 'vue'
+import { computed, onBeforeMount } from 'vue'
 import axios from 'axios'
 
 export default {
@@ -25,12 +25,22 @@ export default {
   setup () {
     const isAuthenticated = computed(() => store.state.isAuthenticated)
 
-    onMounted(() => {
+    onBeforeMount(() => {
       store.commit('isAuthenticated')
 
       axios.get(store.state.api_url + 'post/getposts')
         .then(res => {
           store.commit('getFeed', res.data)
+          axios.post(store.state.api_url + 'user/getprofile', {
+            auth: localStorage.getItem('jwt')
+          })
+            .then(res => {
+              console.log('user from app', res.data.details)
+              store.commit('instantiateUser', res.data.details)
+            })
+            .catch(err => {
+              if (err) throw err
+            })
         })
         .catch(err => {
           if (err) throw err
