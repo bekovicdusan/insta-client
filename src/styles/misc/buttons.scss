@@ -1,5 +1,6 @@
 .primary-button,
-.secondary-button {
+.secondary-button,
+.tertiary-button {
   width: 75px;
   height: 75px;
   display: flex;
@@ -25,6 +26,25 @@
   }
 }
 
+.secondary-button {
+  border: 1px solid $tertiary;
+  color: $tertiary;
+  background-color: $white;
+  &:hover {
+    background-color: $tertiary;
+    color: $accent;
+  }
+}
+
+.tertiary-button {
+  border: 1px solid $warning-transparent;
+  background-color: transparent;
+  font-weight: normal;
+  width: unset;
+  height: 45px;
+  border-radius: 10px;
+}
+
 .primary-button.icon,
 .secondary-button.icon {
   width: 50px;
@@ -34,14 +54,4 @@
 .icon {
   width: 20px;
   height: 20px;
-}
-
-.secondary-button {
-  border: 1px solid $tertiary;
-  color: $tertiary;
-  background-color: $white;
-  &:hover {
-    background-color: $tertiary;
-    color: $accent;
-  }
 }
