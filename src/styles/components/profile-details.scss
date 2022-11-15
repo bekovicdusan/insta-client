@@ -1,0 +1,65 @@
+.user-bar {
+  display: flex;
+  align-items: center;
+  .username {
+    font-weight: normal;
+  }
+  button {
+    margin: auto $padding-standard;
+  }
+  .settings {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.user-stats {
+  display: flex;
+  align-items: center;
+  margin: $padding-s auto $padding-xl auto;
+  span {
+    margin-right: $padding-xxl;
+    strong {
+      margin-right: $padding-xs;
+    }
+  }
+}
+
+.user-bio {
+  p {
+    white-space: pre-line;
+    margin-top: 0;
+  }
+}
+
+.settings-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border-radius: 10px;
+  font-size: 16px;
+  z-index: 999;
+  transform: none;
+  height: fit-content;
+  div:last-child {
+    border: none;
+  }
+  .settings-item {
+    display: flex;
+    padding: $padding-standard 0;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid $warning-transparent;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

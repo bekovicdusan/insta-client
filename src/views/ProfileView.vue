@@ -5,9 +5,7 @@
         <img :src="profileImg" alt="profile img" class="profile-img" @click="showModalUpdate = !showModalUpdate">
       </div>
       <div class="profile-details-container">
-        <div class="user-bar">
-          <h2 class="username">{{ profileUsername }}</h2>
-        </div>
+        <profile-details />
       </div>
     </div>
     <div class="posts-container">
@@ -33,11 +31,13 @@ import store from '@/store'
 
 import PostModal from '@/components/PostModal'
 import PostSquare from '@/components/PostSquare'
+import ProfileDetails from '@/components/ProfileDetails'
 
 export default {
   components: {
     PostModal,
-    PostSquare
+    PostSquare,
+    ProfileDetails
   },
   setup () {
     const showModal = ref(false)
