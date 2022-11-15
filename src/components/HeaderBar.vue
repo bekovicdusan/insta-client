@@ -1,5 +1,7 @@
 <template>
   <header class="header">
-    <h1 class="headline">PinkyPink</h1>
+    <router-link to="/">
+      <h1 class="headline">PinkyPink</h1>
+    </router-link>
   </header>
 </template>
