@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import AccountEditView from '../views/AccountEditView.vue'
 
 const routes = [
   {
@@ -48,6 +49,14 @@ const routes = [
     name: 'ProfilePost',
     props: route => ({ ...route.params, username: route.params.username, post_id: route.params.post_id }),
     component: () => import(/* webpackChunkName: "about" */ '../components/NewPost.vue'),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/account/edit',
+    name: 'AccountEdit',
+    component: AccountEditView,
     meta: {
       requiresAuth: true
     }
