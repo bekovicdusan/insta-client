@@ -7,7 +7,14 @@
     display: flex;
     align-items: center;
     height: 50px;
-    padding: 0 $padding-s;
+    padding: $padding-s;
+    .profile-img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: $padding-s;
+    }
   }
   .post-content {
     width: 470px;
@@ -23,7 +30,8 @@
     .timestamp {
       display: block;
       margin-bottom: $padding-s;
-      // color: $info;
+      font-size: 14px;
+      color: $text-light;
     }
   }
 }

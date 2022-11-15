@@ -7,9 +7,14 @@
   height: 40px;
   padding: $padding-standard;
   background-color: $white;
-  border-bottom: 1px solid $text;
+  box-shadow: 0 0 10px lightgrey;
   color: $main;
+  z-index: 1;
   .headline {
     margin-top: 0;
+    text-decoration: none;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
