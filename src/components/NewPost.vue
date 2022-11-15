@@ -25,6 +25,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import axios from 'axios'
 
 import store from '@/store'
+import router from '@/router'
 
 export default {
   components: {
@@ -44,7 +45,6 @@ export default {
     const constraints = ref({})
 
     const capture = () => {
-      console.log(canvas.value)
       canvas.value.getContext('2d').drawImage(video.value, 0, 0, canvas.value.width, canvas.value.width)
       capturedImg.value = canvas.value.toDataURL('image/png')
       isCaptured.value = true
@@ -68,6 +68,8 @@ export default {
           caption.value = ''
           capturedImg.value = ''
           textarea.value.value = ''
+
+          router.push('/')
         })
         .catch(err => {
           console.log('err: ', err)
