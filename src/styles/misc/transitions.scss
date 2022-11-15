@@ -1,0 +1,19 @@
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .4s linear;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-active {
+  transition: scale(1.2) 0.4s, opacity 0.4s linear;
+}
+
+.modal-enter-to,
+.modal-leave-to {
+  opacity: 0;
+  transform: scale(0.3) translateY(-20%);
+}
