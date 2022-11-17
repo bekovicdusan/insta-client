@@ -8,7 +8,10 @@
         <profile-details />
       </div>
     </div>
-    <div class="posts-container">
+    <hr class="divider profile-nav">
+    <profile-nav :username="profileUsername"/>
+    <router-view />
+    <div class="posts-container" v-if="showPosts">
       <post-square  v-for="post in posts" :key="post.id" :post="post"/>
     </div>
     <transition name="postModal">
@@ -25,23 +28,32 @@
 </template>
 
 <script>
-import { ref, onBeforeMount } from 'vue'
+import { ref, onBeforeMount, computed } from 'vue'
 import axios from 'axios'
 import store from '@/store'
+import router from '@/router'
 
 import PostModal from '@/components/PostModal'
 import PostSquare from '@/components/PostSquare'
 import ProfileDetails from '@/components/ProfileDetails'
+import ProfileNav from '@/components/ProfileNav'
 
 export default {
   components: {
     PostModal,
     PostSquare,
-    ProfileDetails
+    ProfileDetails,
+    ProfileNav
   },
   setup () {
     const showModal = ref(false)
     const showModalUpdate = ref(false)
+    const showPosts = computed(() => {
+      if (router.currentRoute.value.path.includes('/saved') ||
+        router.currentRoute.value.path.includes('/tagged')
+      ) return false
+      else return true
+    })
 
     const posts = ref([])
     const profile = ref()
@@ -102,6 +114,7 @@ export default {
     return {
       showModal,
       showModalUpdate,
+      showPosts,
       posts,
       profileImg,
       newImage,
