@@ -28,6 +28,8 @@ export default {
     onBeforeMount(() => {
       store.commit('isAuthenticated')
 
+      if (isAuthenticated.value !== true) return
+
       axios.get(store.state.api_url + 'post/getposts')
         .then(res => {
           store.commit('getFeed', res.data)
@@ -35,7 +37,7 @@ export default {
             auth: localStorage.getItem('jwt')
           })
             .then(res => {
-              console.log('user from app', res.data.details)
+              // console.log('instantiating user', res)
               store.commit('instantiateUser', res.data.details)
             })
             .catch(err => {
