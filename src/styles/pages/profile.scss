@@ -1,5 +1,5 @@
 .profile {
-  width: 935px;
+  width: $box;
   padding-top: calc(#{$padding-grid} - #{$padding-standard});
   .posts-container {
     display: flex;
@@ -9,8 +9,11 @@
   .profile-info-container {
     display: flex;
     width: 100%;
+    margin-top: $padding-standard;
     .profile-img-container {
       width: 30%;
+      display: flex;
+      align-items: flex-end;
       .profile-img {
         object-fit: cover;
         width: 150px;

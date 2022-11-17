@@ -1,0 +1,49 @@
+.menu-container {
+  position: absolute;
+  padding: 0;
+  top: $padding-xl;
+  right: $padding-xs;
+  width: 240px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  box-shadow: 0 0 8px 3px $box-shadow;;
+  border-radius: 8px;
+  z-index: 999;
+  color: $text;
+  .menu-item {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    padding-left: $padding-standard;
+    font-size: 14px;
+    cursor: pointer;
+    &:hover {
+      background-color: $warning-very-light;
+    }
+    .icon {
+      margin-right: $padding-s;
+      transform: scale(0.8);
+    }
+  }
+  .menu-item.logout {
+    border-radius: 0 0 8px 8px;
+    border-top: 1px solid $box-shadow;
+  }
+  .menu-item.profile-item {
+    border-radius: 8px 8px 0 0;
+  }
+  &::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: $padding-l;
+    top: -$padding-xs;
+    background-color: $white;
+    transform: rotate(45deg);
+    z-index: 0;
+  }
+}
