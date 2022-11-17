@@ -1,14 +1,15 @@
 <template>
   <div class="home">
     <post-component v-for="post in feed" :key="post.id" :post="post"/>
-    <button @click="logout">Logout</button>
   </div>
 </template>
 
 <script>
-import store from '@/store'
 import { computed } from 'vue'
+import axios from 'axios'
+
 import PostComponent from '@/components/PostComponent'
+import store from '@/store'
 
 export default {
   components: {
@@ -16,6 +17,15 @@ export default {
   },
   setup () {
     const feed = computed(() => store.state.feed)
+
+    axios.get(store.state.api_url + 'post/getposts')
+      .then(res => {
+        console.log('feed', res)
+        store.commit('getFeed', res.data)
+      })
+      .catch(err => {
+        if (err) throw err
+      })
 
     const logout = () => {
       store.commit('logout')
