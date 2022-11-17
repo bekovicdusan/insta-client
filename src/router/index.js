@@ -39,7 +39,17 @@ const routes = [
     path: '/profile/:username',
     name: 'Profile',
     props: route => ({ ...route.params, username: route.params.username }),
-    component: () => import(/* webpackChunkName: "about" */ '../views/ProfileView.vue'),
+    component: () => import('../views/ProfileView.vue'),
+    children: [
+      {
+        path: 'saved',
+        component: () => import('../components/SavedPosts.vue')
+      },
+      {
+        path: 'tagged',
+        component: () => import('../components/TaggedPosts.vue')
+      }
+    ],
     meta: {
       requiresAuth: true
     }
@@ -48,7 +58,7 @@ const routes = [
     path: '/profile/:username/:post_id',
     name: 'ProfilePost',
     props: route => ({ ...route.params, username: route.params.username, post_id: route.params.post_id }),
-    component: () => import(/* webpackChunkName: "about" */ '../components/NewPost.vue'),
+    component: () => import('../components/NewPost.vue'),
     meta: {
       requiresAuth: true
     }
@@ -76,7 +86,6 @@ router.beforeEach((to, from, next) => {
         name: 'login'
       })
     } else {
-      console.log('Logged In')
       next()
     }
   } else {
