@@ -1,19 +1,60 @@
-.header {
+.header-container {
   position: fixed;
   top: 0;
   display: flex;
   justify-content: center;
-  width: calc(100vw - (#{$padding-standard} * 2));
+  align-items: center;
+  width: 100vw;
   height: 40px;
-  padding: $padding-standard;
+  padding: $padding-standard $padding-standard $padding-standard 0;
   background-color: $white;
-  box-shadow: 0 0 10px lightgrey;
-  color: $main;
+  box-shadow: 0 0 10px $main-very-transparent;
   z-index: 1;
-  .headline {
-    margin-top: 0;
-    text-decoration: none;
-    &:hover {
+  .header {
+    width: $box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding-right: $padding-standard;
+    .headline {
+      color: $main;
+      position: absolute;
+      margin: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-decoration: none;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .search-div {
+      position: relative;
+      padding-top: $padding-s;
+      border-radius: 10px;
+      background-color: $accent-light;
+      input {
+        margin-left: calc(#{$padding-xxl} - 5px);
+        padding: 0;
+        border: none;
+        background-color: $accent-light;
+        padding-left: $padding-xs;
+      }
+      .icon {
+        color: $main;
+        transform: scale(0.8);
+        position: absolute;
+        z-index: 1;
+        top: $padding-s;
+        left: $padding-standard;
+      }
+    }
+    .profile-img {
+      object-fit: cover;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
       cursor: pointer;
     }
   }

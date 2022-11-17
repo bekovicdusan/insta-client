@@ -1,9 +1,11 @@
-$padding-xxl: 50px;
-$padding-xl: 30px;
-$padding-l: 20px;
-$padding-grid: 16px;
-$padding-standard: 15px;
-$padding-s: 10px;
+$padding-xxs: 2px;
 $padding-xs: 5px;
+$padding-s: 10px;
+$padding-standard: 15px;
+$padding-grid: 16px;
+$padding-l: 20px;
+$padding-xl: 30px;
+$padding-xxl: 50px;
 
 $header: calc(40px + (#{$padding-standard}) * 2);
+$box: 935px;
