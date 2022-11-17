@@ -6,13 +6,17 @@ export default createStore({
     api_url: 'http://localhost:3000/',
     isAuthenticated: false,
     currentUser: {},
-    feed: []
+    feed: [],
+    showProfileMenu: false
   },
   getters: {
   },
   mutations: {
     getFeed (state, feed) {
       state.feed = feed
+    },
+    showProfileMenu (state) {
+      state.showProfileMenu = !state.showProfileMenu
     },
     isAuthenticated (state) {
       if (localStorage.getItem('jwt') !== null) {
@@ -34,6 +38,7 @@ export default createStore({
       router.push('/login')
     },
     instantiateUser (state, user) {
+      console.log('user is instantiated', user)
       state.currentUser.email = user.email
       state.currentUser.display_name = user.display_name
       state.currentUser.forename = user.forename
@@ -41,8 +46,9 @@ export default createStore({
       state.currentUser.username = user.username
       state.currentUser._id = user._id
       state.currentUser.numberOfPosts = user.posts ? user.posts.length : 0
-      state.currentUser.bio = user.bio
+      state.currentUser.bio = user.bio ? user.bio : ''
       state.currentUser.profileImg = user.profile_img
+      console.log('instantiated user', state.currentUser)
     }
   },
   actions: {
