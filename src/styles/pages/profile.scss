@@ -14,15 +14,6 @@
       width: 30%;
       display: flex;
       align-items: flex-end;
-      .profile-img {
-        object-fit: cover;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        &:hover {
-          cursor: pointer;
-        }
-      }
     }
     .profile-details-container {
       width: 70%;

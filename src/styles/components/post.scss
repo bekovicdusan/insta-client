@@ -8,12 +8,8 @@
     align-items: center;
     height: 50px;
     padding: $padding-s;
-    .profile-img {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: $padding-s;
+    strong {
+      margin-left: $padding-s;
     }
   }
   .post-content {
