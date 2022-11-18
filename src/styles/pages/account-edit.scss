@@ -1,0 +1,14 @@
+.account-edit-wrapper {
+  margin-top: $padding-l;
+  width: $box;
+  .account-edit-container {
+    display: flex;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid $warning-transparent;
+    background-color: $white;
+    .nav {
+      width: 31%;
+    }
+  }
+}

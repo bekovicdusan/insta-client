@@ -1,0 +1,51 @@
+.edit-profile-container {
+  padding: $padding-xl 0;
+  width: 79%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  .profile-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: $padding-s;
+    .profile-img-container {
+      width: 25%;
+      display: flex;
+      justify-content: flex-end;
+      padding-right: $padding-xl;
+    }
+    .profile-actions {
+      display: flex;
+      flex-direction: column;
+      width: 75%;
+      .username {
+        margin: 0;
+        color: $text;
+      }
+      .action {
+        color: $tertiary;
+        cursor: pointer;
+        display: block;
+      }
+    }
+  }
+  .form-input {
+    display: flex;
+    margin-top: $padding-grid;
+    .left-side {
+      width: 25%;
+      text-align: right;
+      padding-right: $padding-xl;
+    }
+    .right-side {
+      width: 75%;
+      max-width: 300px;
+      .small-text {
+        margin: 0;
+        margin-top: $padding-s;
+        color: $text-light;
+        font-size: 12px;
+      }
+    }
+  }
+}

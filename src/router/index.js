@@ -64,9 +64,63 @@ const routes = [
     }
   },
   {
-    path: '/account/edit',
+    path: '/account',
     name: 'AccountEdit',
     component: AccountEditView,
+    children: [
+      {
+        path: 'edit',
+        component: () => import('../components/EditProfile.vue')
+      },
+      {
+        path: 'change-password',
+        component: () => import('../components/ChangePassword.vue')
+      },
+      {
+        path: 'apps-and-websites',
+        component: () => import('../components/AppsAndWebsites.vue')
+      },
+      {
+        path: 'email-notifications',
+        component: () => import('../components/EmailNotifications.vue')
+      },
+      {
+        path: 'push-notifications',
+        component: () => import('../components/PushNotifications.vue')
+      },
+      {
+        path: 'manage-contacts',
+        component: () => import('../components/ManageContacts.vue')
+      },
+      {
+        path: 'privacy-and-security',
+        component: () => import('../components/PrivacyAndSecurity.vue')
+      },
+      {
+        path: 'ads',
+        component: () => import('../components/AdsComponent.vue')
+      },
+      {
+        path: 'supervision',
+        component: () => import('../components/SuperVision.vue')
+      },
+      {
+        path: 'login-activity',
+        component: () => import('../components/LoginActivity.vue')
+      },
+      {
+        path: 'emails-from-pinkypink',
+        component: () => import('../components/EmailsFromPinkyPink.vue')
+      },
+      {
+        path: 'help',
+        component: () => import('../components/HelpComponent.vue')
+      },
+      {
+        path: 'digital-collectibles',
+        component: () => import('../components/DigitalCollectibles.vue')
+      }
+    ],
     meta: {
       requiresAuth: true
     }
