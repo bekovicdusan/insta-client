@@ -1,0 +1,29 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: $padding-l;
+  margin-bottom: calc(#{$padding-xl} * 2);
+    .links {
+    list-style: none;
+    padding: 0; 
+    margin: 0 $padding-xl;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    .link {
+      margin-right: $padding-standard;
+      color: $main-slightly-light;
+    }
+  }
+  .footer-lower {
+    margin-top: $padding-standard;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $main-slightly-light;
+    .language {
+      margin-right: $padding-s;
+    }
+  }
+}

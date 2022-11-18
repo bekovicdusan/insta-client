@@ -1,0 +1,57 @@
+.account-edit-nav-container {
+  border-right: 1px solid $warning-transparent;
+  .nav-collection {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid $warning-transparent;
+    .nav-item {
+      padding: $padding-standard $padding-xl;
+      border-left: 2px solid transparent;
+      &:hover {
+        background-color: $warning-very-light;
+      }
+    }
+    .nav-item.last {
+      text-align: center;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $tertiary;
+      &:hover {
+        background-color: $white;
+      }
+    }
+    .router-link-exact-active {
+      .nav-item {
+        border-left: 2px solid $warning;
+        font-weight: bold;
+        &:hover {
+          background-color: $white;
+        }
+      }
+    }
+  }
+  .infinity {
+    padding: $padding-l;
+    cursor: pointer;
+    .logo {
+      display: flex;
+      align-items: center;
+      .icon {
+        color: $warning;
+        margin-right: $padding-xs;
+      }
+    }
+    .headline-secondary {
+      margin: $padding-s 0;
+      color: $warning;
+    }
+    .copyright {
+      color: $text-light;
+      margin: 0;
+      font-size: 12px;
+    }
+  }
+}
