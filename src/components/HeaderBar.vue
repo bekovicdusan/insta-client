@@ -8,7 +8,7 @@
       <router-link to="/">
         <h1 class="headline">PinkyPink</h1>
       </router-link>
-      <img :src="profileImg" alt="profile img" class="profile-img" @click="showProfileMenu">
+      <profile-image :image="profileImg" :size="35" @click="showProfileMenu"/>
       <profile-menu v-if="showMenu" />
       <div class="modal-overlay profile-menu" v-if="showMenu" @click="showProfileMenu"></div>
     </header>
@@ -18,15 +18,18 @@
 <script>
 import { computed } from 'vue'
 
-import ProfileMenu from '@/components/ProfileMenu'
 import store from '@/store'
+
+import ProfileMenu from '@/components/ProfileMenu'
+import ProfileImage from '@/components/ProfileImage'
 
 export default {
   components: {
-    ProfileMenu
+    ProfileMenu,
+    ProfileImage
   },
   setup () {
-    const profileImg = computed(() => store.state.currentUser.profileImg)
+    const profileImg = computed(() => store.state.currentUser.profileImg ? store.state.currentUser.profileImg : 'https://w7.pngwing.com/pngs/754/2/png-transparent-samsung-galaxy-a8-a8-user-login-telephone-avatar-pawn-blue-angle-sphere-thumbnail.png')
     const showMenu = computed(() => store.state.showProfileMenu)
 
     const showProfileMenu = () => {

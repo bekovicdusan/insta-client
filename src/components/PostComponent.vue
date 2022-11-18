@@ -1,7 +1,7 @@
 <template>
   <article class="post" :userid="post.user_id">
     <header class="post-header">
-      <img :src="profileImg" alt="profile img" class="profile-img">
+      <profile-image :image="profileImg" :size="45" />
       <strong>{{ post.username }}</strong>
     </header>
     <section class="post-content">
@@ -20,12 +20,17 @@ import axios from 'axios'
 
 import store from '@/store'
 
+import ProfileImage from '@/components/ProfileImage'
+
 export default {
   props: {
     post: {
       type: Object,
       required: true
     }
+  },
+  components: {
+    ProfileImage
   },
   setup (props) {
     const profileImg = ref('https://w7.pngwing.com/pngs/754/2/png-transparent-samsung-galaxy-a8-a8-user-login-telephone-avatar-pawn-blue-angle-sphere-thumbnail.png')

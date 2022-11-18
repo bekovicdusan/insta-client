@@ -2,7 +2,7 @@
   <div class="profile" ref="profile">
     <div class="profile-info-container">
       <div class="profile-img-container">
-        <img :src="profileImg" alt="profile img" class="profile-img" @click="showModalUpdate = !showModalUpdate">
+        <profile-image :image="profileImg" :size="150" @click="showModalUpdate = !showModalUpdate"/>
       </div>
       <div class="profile-details-container">
         <profile-details />
@@ -37,13 +37,15 @@ import PostModal from '@/components/PostModal'
 import PostSquare from '@/components/PostSquare'
 import ProfileDetails from '@/components/ProfileDetails'
 import ProfileNav from '@/components/ProfileNav'
+import ProfileImage from '@/components/ProfileImage'
 
 export default {
   components: {
     PostModal,
     PostSquare,
     ProfileDetails,
-    ProfileNav
+    ProfileNav,
+    ProfileImage
   },
   setup () {
     const showModal = ref(false)
